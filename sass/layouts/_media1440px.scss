@@ -1,0 +1,69 @@
+@media (min-width:1440px){
+    .listNav{
+        display: flex;
+        gap: 30px;
+        margin-right: 10px;
+    }
+    
+    .listNav li{
+        font-size: 25px;
+        font-weight: 600;
+    }
+    .titulo h2{
+        font-size: 150px;
+    }
+    .titulo h3{
+        font-size: 130px;
+    }
+    .textohome p{
+        font-size: 35px;
+        padding: 5px;
+    }
+    .btn{
+        font-size: 30px;
+    }
+    .txtHome{
+        font-size: 35px;
+    }
+    .boton{
+        font-size: 30px;
+    }
+    .coach{
+        display: flex;
+         flex-direction: column;
+         gap: 55px;
+         justify-content: flex-start;
+     }
+     .botones{
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+     }
+     .videoCoach {
+        iframe{
+            width: 900px;
+            height: 412px;
+        }
+       
+    }
+    .retroshoes{
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        }
+        picture img{
+            width:450px ;
+            height: 600px;
+        }
+        .enviarMail{
+            width: 400px;
+        }
+    .redes ul li{
+        font-size: 20px;
+    }
+    footer p{
+        font-size: 20px;
+    }
+}

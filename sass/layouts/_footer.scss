@@ -1,0 +1,20 @@
+footer{
+    display: flex;
+    background-color:$bg-footer;
+    p{
+        text-align: left;
+        font-size: 10px;
+    }
+    .redes{
+        ul{
+            list-style: none;
+            @include flex(row,none,space-around,none,5px);
+            font-size: 10px;
+            li{
+                img{
+                    width: 20px;
+                }
+            }
+        }  
+    } 
+}
