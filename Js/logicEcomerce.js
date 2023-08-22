@@ -251,8 +251,16 @@ function vaciarCarrito() {
 const GuardarUsuario = document.getElementById('guardarUsuario');
 const NombreUsuario = document.getElementById('nombreUsuario');
 // funcion para guardar USUARIO
+nombreUsuario.onkeyup = () => {
+    if(nombreUsuario.value.length < 4){
+        nombreUsuario.style.color = 'red';
+    }else{
+        nombreUsuario.style.color = 'black';
+    }
+}
 GuardarUsuario.addEventListener('click', () => {
     const nombreUsuario = NombreUsuario.value.trim();
+    
     if (nombreUsuario !== '') {
         localStorage.setItem('usuario', nombreUsuario);
         NombreUsuario.value = '';
@@ -271,7 +279,7 @@ const btnGuardarEmail = document.getElementById('btnEmail');
 
 btnGuardarEmail.addEventListener('click', () => {
     const email = contacto.value.trim();
-    if (email !== '' && email.includes('@')) {
+    if (email !== '' && email.includes('@')|| !email.value.includes('.')) {
         localStorage.setItem('contacto', email);
         contacto.value = '';
         Swal.fire({
