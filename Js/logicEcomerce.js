@@ -38,6 +38,7 @@ for(const boton of btnConver){
                     </div>
                 </div>
             `;}
+            //boton para agregar al carrito
 let btnCompra = document.getElementsByClassName('compra');
 for (const boton of btnCompra){
     boton.addEventListener('click',()=>{
@@ -249,7 +250,7 @@ function vaciarCarrito() {
 
 const GuardarUsuario = document.getElementById('guardarUsuario');
 const NombreUsuario = document.getElementById('nombreUsuario');
-
+// funcion para guardar USUARIO
 GuardarUsuario.addEventListener('click', () => {
     const nombreUsuario = NombreUsuario.value.trim();
     if (nombreUsuario !== '') {
@@ -270,7 +271,7 @@ const btnGuardarEmail = document.getElementById('btnEmail');
 
 btnGuardarEmail.addEventListener('click', () => {
     const email = contacto.value.trim();
-    if (email !== '') {
+    if (email !== '' && email.includes('@')) {
         localStorage.setItem('contacto', email);
         contacto.value = '';
         Swal.fire({
@@ -282,4 +283,40 @@ btnGuardarEmail.addEventListener('click', () => {
           })
     }
 });
+
+//get a json local
+
+function JsonLocal() {
+    const URLJSON = "./camisetas.json";
+    fetch(URLJSON)
+    .then(resp => resp.json())
+    .then(data => {
+        // Inyeccion al DOM
+        let promo = data.camisetas;
+        let tablaPromo = document.getElementById("tablaPromo"); 
+        // Inyeccion Camisetas del JSON
+        for (const prod of promo) {
+            tablaPromo.innerHTML += `
+                <div class="card col-sm-2 ">
+                    <img class="card-img-top rounded ImgFija" src=${prod.url} alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">${prod.nombre}</h5>
+                        <p class="card-text">$ ${prod.precio}</p>
+                        <p class="card-text">Aprovecha Nuestras Remeras en Promo!!
+                        Subscribite asi te enteras de las PROMOS</p>
+                    </div>
+                </div>
+            `;
+        }
+    }
+    )
+    .catch(error => {
+        console.error("Error JSON:", error);
+    });
+    
+}
+
+JsonLocal();
+
+
 
